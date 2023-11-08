@@ -1,6 +1,6 @@
 {
   "name": "omnius-ui-uni",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "private": false,
   "main": "index.ts",
   "style": "style.css",
