@@ -8,9 +8,6 @@
   "description": "",
   "author": "",
   "license": "ISC",
-  "scripts": {
-    "publish:custom": "npm publish --registry=http://localhost:4873/"
-  },
   "dependencies": {
     "@iconify/tools": "^3.0.5",
     "@iconify/utils": "^2.1.11",

@@ -5,7 +5,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const text = ref('一个按钮abvdsdss')
+const text = ref('一个按钮')
 </script>
 <style>
 .block {
