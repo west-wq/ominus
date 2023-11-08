@@ -1,0 +1,21 @@
+{
+  "recommendations": [
+    // 能力支持
+    "Vue.volar",
+    "antfu.unocss",
+    "christian-kohler.path-intellisense",
+    "antfu.iconify",
+    // 规范
+    "EditorConfig.EditorConfig",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "stylelint.vscode-stylelint",
+    // AI 工具
+    "GitHub.copilot",
+    "GitHub.copilot-chat",
+    "TabNine.tabnine-vscode",
+    // 其他工具
+    "Gruntfuggly.todo-tree",
+    "eamodio.gitlens"
+  ]
+}

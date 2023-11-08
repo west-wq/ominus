@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "lib": ["esnext", "dom"],
+    "types": ["vite/client", "@dcloudio/types"],
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "useDefineForClassFields": true,
+    "noImplicitThis": true,
+    "strict": true,
+    "isolatedModules": true,
+    "preserveValueImports": true,
+    "importsNotUsedAsValues": "error",
+    "target": "ESNext",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "lint": "eslint . --ext .ts,.js,.cjs,.mjs,.vue --fix --cache --cache-location node_modules/.cache/eslint/",
+    "format": "prettier \"**/*.{js,ts,json,tsx,css,scss,vue,md}\" --write --cache --cache-location node_modules/.cache/prettier/.cache",
+    "stylelint": "stylelint \"**/*.{css,scss,vue}\" --fix --cache --cache-location node_modules/.cache/stylelint/"
+  },
+  "include": ["**/*", ".type/*.d.ts"]
+}
