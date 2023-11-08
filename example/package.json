@@ -31,7 +31,6 @@
     "@dcloudio/uni-mp-alipay": "3.0.0-3081220230817001",
     "@dcloudio/uni-mp-lark": "3.0.0-3081220230817001",
     "@dcloudio/uni-mp-weixin": "3.0.0-3081220230817001",
-    "omnius-ui-uni": "^0.0.3",
     "vue": "^3.2.45",
     "vue-i18n": "^9.1.9"
   },
