@@ -1,11 +1,11 @@
 <template>
-  <view style="width: 100px; height: 50px; margin: 100px">{{ text }}</view>
-  <view class="block"></view>
+  <view style="width: 100px; height: 50px; margin: 100px">{{ text }}<i class="i-icons-delete" color="red"></i></view>
+  <view class="block" overflow-auto></view>
 </template>
 <script setup lang="ts">
+// import Lodash from 'lodash'
 import { ref } from 'vue'
-
-const text = ref('一个按钮')
+const text = ref('一个按钮1')
 </script>
 <style>
 .block {
