@@ -23,4 +23,3 @@ lerna-debug.log*
 .omnius
 node_modules
 dist
-example/node_modules

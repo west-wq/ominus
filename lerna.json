@@ -3,10 +3,11 @@
   "version": "independent",
   "npmClient": "pnpm",
   "command": {
-    "version": {
+    "publish": {
       "ignoreChanges": ["**/*.md"],
       "message": "chore(release): publish",
       "conventionalCommits": true,
+      "exact": true,
       "exec": "npx commitlint --from $LERNA_PACKAGE_NAME"
     }
   }

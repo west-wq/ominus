@@ -22,5 +22,5 @@
     "format": "prettier \"**/*.{js,ts,json,tsx,css,scss,vue,md}\" --write --cache --cache-location node_modules/.cache/prettier/.cache",
     "stylelint": "stylelint \"**/*.{css,scss,vue}\" --fix --cache --cache-location node_modules/.cache/stylelint/"
   },
-  "include": ["**/*", ".type/*.d.ts"]
+  "include": ["**/*", "**/.type/*.d.ts"]
 }
