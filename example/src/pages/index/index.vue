@@ -4,8 +4,10 @@
     <view class="text-area">
       <text class="title">{{ title }}</text>
     </view>
-    <om-button></om-button>
-    <view class="bg-black" c-brand-7 style="width: 50px; height: 50px">a</view>
+    <!-- <om-button></om-button> -->
+    <i class="i-icons-delete" color="red"></i>
+
+    <view class="bg-black" c-brand-7 style="width: 50px; height: 50px" text-c>a</view>
     <om-wrapper></om-wrapper>
   </view>
 </template>

@@ -8,7 +8,6 @@
     "dev:app-ios": "uni -p app-ios",
     "dev:custom": "uni -p",
     "dev:h5": "uni",
-    "dev:h5:ssr": "uni --ssr",
     "dev:mp-alipay": "uni -p mp-alipay",
     "dev:mp-lark": "uni -p mp-lark",
     "dev:mp-weixin": "uni -p mp-weixin",
@@ -17,11 +16,9 @@
     "build:app-ios": "uni build -p app-ios",
     "build:custom": "uni build -p",
     "build:h5": "uni build",
-    "build:h5:ssr": "uni build --ssr",
     "build:mp-alipay": "uni build -p mp-alipay",
     "build:mp-lark": "uni build -p mp-lark",
-    "build:mp-weixin": "uni build -p mp-weixin",
-    "type-check": "vue-tsc --noEmit"
+    "build:mp-weixin": "uni build -p mp-weixin"
   },
   "dependencies": {
     "@dcloudio/uni-app": "3.0.0-3081220230817001",
@@ -31,12 +28,11 @@
     "@dcloudio/uni-mp-alipay": "3.0.0-3081220230817001",
     "@dcloudio/uni-mp-lark": "3.0.0-3081220230817001",
     "@dcloudio/uni-mp-weixin": "3.0.0-3081220230817001",
-    "vue": "^3.2.45",
-    "vue-i18n": "^9.1.9"
+    "omnius-ui-uni": "^0.1.0",
+    "vue": "^3.2.45"
   },
   "devDependencies": {
     "@dcloudio/types": "^3.3.2",
-    "@dcloudio/uni-automator": "3.0.0-3081220230817001",
     "@dcloudio/uni-cli-shared": "3.0.0-3081220230817001",
     "@dcloudio/uni-stacktracey": "3.0.0-3081220230817001",
     "@dcloudio/vite-plugin-uni": "3.0.0-3081220230817001",
@@ -45,6 +41,6 @@
     "typescript": "^4.9.4",
     "unplugin-vue-components": "^0.25.2",
     "vite": "4.1.4",
-    "vue-tsc": "^1.0.24"
+    "unplugin-auto-import": "^0.16.7"
   }
 }
