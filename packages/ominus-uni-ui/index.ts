@@ -21,7 +21,7 @@ function unoCustomPresetCallback() {
             'vertical-align': 'middle',
           },
           collections: {
-            icons: FileSystemIconLoader('node_modules/omnius-ui-uni/lib/assets/icons', async (svg) => {
+            icons: FileSystemIconLoader('node_modules/@omnius-uni/ui/lib/assets/icons', async (svg) => {
               const svgObject = new SVG(svg)
               await cleanupSVG(svgObject)
               await runSVGO(svgObject)

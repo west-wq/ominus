@@ -1,0 +1,13 @@
+@import url('./token.css');
+@import url('./animate.css');
+@import url('./atoms.css');
+
+page {
+  font-family: Inter, 'Noto Sans SC', sans-serif, system-ui;
+
+  @apply overflow-hidden;
+}
+
+:not(not) {
+  @apply box-border;
+}

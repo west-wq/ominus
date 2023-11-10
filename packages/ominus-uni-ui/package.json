@@ -1,5 +1,5 @@
 {
-  "name": "omnius-ui-uni",
+  "name": "@omnius-uni/ui",
   "version": "0.1.1",
   "private": false,
   "main": "index.ts",

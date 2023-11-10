@@ -3,9 +3,8 @@
   <view class="block" overflow-auto></view>
 </template>
 <script setup lang="ts">
-// import Lodash from 'lodash'
 import { ref } from 'vue'
-const text = ref('一个按钮1')
+const text = ref('一个按钮111')
 </script>
 <style>
 .block {
