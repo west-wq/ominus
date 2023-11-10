@@ -1,6 +1,6 @@
 {
   "name": "example",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev:app": "uni -p app",
@@ -28,7 +28,7 @@
     "@dcloudio/uni-mp-alipay": "3.0.0-3081220230817001",
     "@dcloudio/uni-mp-lark": "3.0.0-3081220230817001",
     "@dcloudio/uni-mp-weixin": "3.0.0-3081220230817001",
-    "@omnius-uni/ui": "^0.1.1",
+    "@omnius-uni/ui": "0.1.2",
     "vue": "^3.2.45"
   },
   "devDependencies": {
