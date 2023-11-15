@@ -1,20 +1,15 @@
 <template>
   <view class="content">
-    <image class="logo" src="/static/logo.png" />
     <view class="text-area">
       <text class="title">{{ title }}</text>
     </view>
-    <om-button></om-button>
-    <OmButton></OmButton>
-
+    <i class="i-icons-delete" color="red"></i>
+    <i class="i-custom-filter" color="red"></i>
     <view class="bg-black" c-brand-7 style="width: 50px; height: 50px" text-c>a</view>
-    <om-wrapper></om-wrapper>
   </view>
 </template>
 
 <script setup lang="ts">
-// import { ref } from 'vue'
-
 const title = ref('Hello')
 </script>
 
