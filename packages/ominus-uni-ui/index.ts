@@ -1,17 +1,30 @@
 import { presetIcons, transformerDirectives, type Preset, type SourceCodeTransformer, presetWebFonts, definePreset } from 'unocss'
+import type { CustomIconLoader } from '@iconify/utils/lib/loader/types'
 import presetWeapp, { type Theme } from 'unocss-preset-weapp'
 import { extractorAttributify, transformerClass } from 'unocss-preset-weapp/transformer'
 import { FileSystemIconLoader } from '@iconify/utils/lib/loader/node-loaders'
 import { SVG, cleanupSVG, runSVGO, parseColors, isEmptyColor } from '@iconify/tools'
 import { compareColors, stringToColor } from '@iconify/utils/lib/colors'
 import type { Color } from '@iconify/utils/lib/colors/types'
+import fs from 'node:fs'
 const { presetWeappAttributify, transformerAttributify } = extractorAttributify()
 
 export function unoTransformer() {
   return [transformerDirectives(), transformerAttributify() as unknown as SourceCodeTransformer, transformerClass() as unknown as SourceCodeTransformer]
 }
-function unoCustomPresetCallback() {
-  return () => {
+
+export const unoCustomPreset = (collection?: { prefix: string; path: string }) => {
+  const collections = [{ prefix: 'icons', path: 'node_modules/@omnius-uni/ui/lib/assets/icons' }]
+  if (collection?.prefix && collection.path) {
+    try {
+      fs.accessSync('src/assets/icons')
+      collections.push(collection)
+    } catch (err) {
+      console.log('文件目录不存在')
+    }
+  }
+
+  return definePreset(() => {
     return {
       name: 'custom-preset',
       presets: [
@@ -20,42 +33,46 @@ function unoCustomPresetCallback() {
             display: 'inline-block',
             'vertical-align': 'middle',
           },
-          collections: {
-            icons: FileSystemIconLoader('node_modules/@omnius-uni/ui/lib/assets/icons', async (svg) => {
-              const svgObject = new SVG(svg)
-              await cleanupSVG(svgObject)
-              await runSVGO(svgObject)
-              await parseColors(svgObject, {
-                defaultColor: 'currentColor',
-                callback: (_attr, colorStr, color) => {
-                  if (!color) {
-                    // color === null, so color cannot be parsed
-                    // Return colorStr to keep old value
+          collections: collections.reduce(
+            (acc, obj) => {
+              acc[obj.prefix] = FileSystemIconLoader(obj.path, async (svg) => {
+                const svgObject = new SVG(svg)
+                await cleanupSVG(svgObject)
+                await runSVGO(svgObject)
+                await parseColors(svgObject, {
+                  defaultColor: 'currentColor',
+                  callback: (_attr, colorStr, color) => {
+                    if (!color) {
+                      // color === null, so color cannot be parsed
+                      // Return colorStr to keep old value
+                      return colorStr
+                    }
+
+                    if (isEmptyColor(color)) {
+                      // Color is empty: 'none' or 'transparent'
+                      // Return color object to keep old value
+                      return color
+                    }
+
+                    // Black color: change to 'currentColor'
+                    if (compareColors(color, stringToColor('black') as Color)) {
+                      return 'currentColor'
+                    }
+
+                    // White color: belongs to white background rectangle: remove rectangle
+                    if (compareColors(color, stringToColor('white') as Color)) {
+                      return 'remove'
+                    }
+
                     return colorStr
-                  }
-
-                  if (isEmptyColor(color)) {
-                    // Color is empty: 'none' or 'transparent'
-                    // Return color object to keep old value
-                    return color
-                  }
-
-                  // Black color: change to 'currentColor'
-                  if (compareColors(color, stringToColor('black') as Color)) {
-                    return 'currentColor'
-                  }
-
-                  // White color: belongs to white background rectangle: remove rectangle
-                  if (compareColors(color, stringToColor('white') as Color)) {
-                    return 'remove'
-                  }
-
-                  return colorStr
-                },
+                  },
+                })
+                return svgObject.toMinifiedString()
               })
-              return svgObject.toMinifiedString()
-            }),
-          },
+              return acc
+            },
+            {} as Record<string, CustomIconLoader>,
+          ),
         }),
         presetWebFonts({
           provider: 'bunny',
@@ -244,6 +261,5 @@ function unoCustomPresetCallback() {
         },
       },
     }
-  }
+  })
 }
-export const unoCustomPreset = definePreset(unoCustomPresetCallback())
